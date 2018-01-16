@@ -111,24 +111,15 @@
     body_format: json
     method: PUT
     url: "http://{{ inventory_hostname }}:9200/_template/bro_base"
-  when: "'primary-servers' in group_names"
 
-#- name: "Check for Bro detection mapping template"
-#  uri:
-#    method: GET
-#    url: "http://{{ inventory_hostname }}:9200/_template/bro_detection"
-#  failed_when: false
-#  register: bro_detectionMapping
-#    when: "'primary-servers' in group_names"
-#
-#- name: "Load Bro Elasticsearch detection mapping template"
-#    uri:
-#      body: "{{ lookup('file', 'es-bro-detection-mappings.json')}}"
-#      body_format: json
-#      method: PUT
-#      url: "http://{{ inventory_hostname }}:9200/_template/bro_detection"
-#    when: "'primary-servers' in group_names and bro_detectionMapping is defined and bro_detectionMapping.status == ''"
-#
+
+- name: "Load Bro Elasticsearch detection mapping template"
+  uri:
+    body: "{{ lookup('file', 'es-bro-detection-mappings.json')}}"
+    body_format: json
+    method: PUT
+    url: "http://{{ inventory_hostname }}:9200/_template/bro_detection"
+
 #- name: "Check for Bro file mapping template"
 #        uri:
 #          method: GET
