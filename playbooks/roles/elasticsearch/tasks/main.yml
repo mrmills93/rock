@@ -97,13 +97,13 @@
 #  wait_for: "host={{ inventory_hostname }} port=9200"
 #  when: "'primary-servers' in group_names"
 
-- name: "Check for Bro base mapping template"
-  uri:
-    method: GET
-    url: "http://{{ inventory_hostname }}:9200/_template/bro_base"
-  failed_when: false
-  register: bro_baseMapping
-  when: "'primary-servers' in group_names"
+#- name: "Check for Bro base mapping template"
+#  uri:
+#    method: GET
+#    url: "http://{{ inventory_hostname }}:9200/_template/bro_base"
+#  failed_when: false
+#  register: bro_baseMapping
+#  when: "'primary-servers' in group_names"
 
 - name: "Load Bro Elasticsearch base mapping template"
   uri:
@@ -111,7 +111,7 @@
     body_format: json
     method: PUT
     url: "http://{{ inventory_hostname }}:9200/_template/bro_base"
-  when: "'primary-servers' in group_names and bro_baseMapping is defined and bro_baseMapping.status == ''"
+  when: "'primary-servers' in group_names"
 
 #- name: "Check for Bro detection mapping template"
 #  uri:
