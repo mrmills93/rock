@@ -94,8 +94,8 @@
 
 # TODO: This will not work because this port is not exposed
 - name: "Wait for Elasticsearch to become ready"
-    pause:
-      seconds: 60
+  pause:
+    seconds: 60
 #- name: "Check for Bro base mapping template"
 #  uri:
 #    method: GET
