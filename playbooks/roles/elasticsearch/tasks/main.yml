@@ -94,11 +94,8 @@
 
 # TODO: This will not work because this port is not exposed
 - name: "Wait for Elasticsearch to become ready"
-    wait_for:
-      host="{{ inventory_hostname }}"
-      port=9200
-    when: "'primary-servers' in group_names"
-
+    pause:
+      seconds: 60
 #- name: "Check for Bro base mapping template"
 #  uri:
 #    method: GET
