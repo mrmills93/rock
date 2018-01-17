@@ -97,6 +97,8 @@
   wait_for:
     host: "{{inventory_hostname}}"
     port: 9200
+    search_regex: "You Know, for Search"
+    delay: 1
 #- name: "Check for Bro base mapping template"
 #  uri:
 #    method: GET
