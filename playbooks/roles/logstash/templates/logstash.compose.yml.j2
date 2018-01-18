@@ -4,18 +4,11 @@ services:
     image: "docker.elastic.co/logstash/logstash:{{ elastic_ver }}"
     container_name: logstash
     restart: always
-    #network_mode: host
-    #ports:
-    #- 5044:5044
     volumes:
     - "{{ logstash_pipeline_dir }}:/usr/share/logstash/pipeline/"
     - "{{ logstash_data_dir }}:/usr/share/logstash/data/"
     - "{{ logstash_log_dir }}:{{ logstash_log_dir }}"
     environment:
-    - path.config=/usr/share/logstash/pipeline
-    - path.logs="{{ logstash_log_dir }}"
-    - path.data=/usr/share/logstash/data
-    - "ES_JAVA_OPTS=-Xms1G -Xmx1G -XX:-AssumeMP"
     - xpack.monitoring.enabled="{{ xpack_license }}"
     - xpack.management.enabled="{{ xpack_license }}"
 
@@ -23,4 +16,3 @@ networks:
   default:
     external:
       name: 'rocknsm_inside'
-

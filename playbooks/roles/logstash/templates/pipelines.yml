@@ -1,0 +1,4 @@
+- pipeline.id: apache
+  path.config: "/path/to/config/apache.cfg"
+- pipeline.id: firewall
+  path.config: "/path/to/config/firewall.cfg"

@@ -8,9 +8,7 @@
     group: "{{ logstash_group }}"
     mode: u+rw,g+rw,o+r
     owner: "{{ logstash_user }}"
-    src: 'logstash-kafka-bro.conf'
-  notify: "Restart Logstash"
-  when: "included_components.bro.enabled and included_components.kafka.enabled"
+    src: 'kafka-bro.conf'
 
 - name: "Install Suricata-Kafka configuration for Logstash"
   copy:
@@ -18,9 +16,7 @@
     group: "{{ logstash_group }}"
     mode: u+rw,g+rw,o+r
     owner: "{{ logstash_user }}"
-    src: 'logstash-kafka-suricata.conf'
-  notify: "Restart Logstash"
-  when: "included_components.suricata.enabled and included_components.kafka.enabled"
+    src: 'kafka-suricata.conf'
 
 - name: "Install FSF-Kafka configuration for Logstash"
   copy:
@@ -28,6 +24,9 @@
     group: "{{ logstash_group }}"
     mode: u+rw,g+rw,o+r
     owner: "{{ logstash_user }}"
-    src: 'logstash-kafka-fsf.conf'
-  notify: "Restart Logstash"
-  when: "included_components.fsf.enabled and included_components.kafka.enabled"
+    src: 'kafka-fsf.conf'
+
+- name: Restart Logstash
+  systemd:
+    name: logstash
+    state: restarted
