@@ -1,4 +1,12 @@
-- pipeline.id: apache
-  path.config: "/path/to/config/apache.cfg"
-- pipeline.id: firewall
-  path.config: "/path/to/config/firewall.cfg"
+- pipeline.id: bro
+  queue.type: persisted
+  queue.max_bytes: 2gb
+  path.config: "{{ logstash_pipeline_dir }}/kafka-bro.conf"
+- pipeline.id: suricata
+  queue.type: persisted
+  queue.max_bytes: 2gb
+  path.config: "{{ logstash_pipeline_dir }}/kafka-suricata.conf"
+- pipeline.id: fsf
+  queue.type: persisted
+  queue.max_bytes: 2gb
+  path.config: "{{ logstash_pipeline_dir }}/kafka-fsf.conf"

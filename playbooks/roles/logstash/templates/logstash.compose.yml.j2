@@ -5,7 +5,7 @@ services:
     container_name: logstash
     restart: always
     volumes:
-    - "{{ logstash_pipeline_dir }}:/usr/share/logstash/pipeline/"
+    - "{{ logstash_pipeline_dir }}:/usr/share/logstash/pipeline"
     - "{{ logstash_data_dir }}:/usr/share/logstash/data/"
     - "{{ logstash_log_dir }}:{{ logstash_log_dir }}"
     environment:
