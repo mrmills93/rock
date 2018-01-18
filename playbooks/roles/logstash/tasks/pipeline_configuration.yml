@@ -26,6 +26,14 @@
     owner: "{{ logstash_user }}"
     src: 'kafka-fsf.conf'
 
+- name: "Copy pipelines.yml template"
+  template:
+    dest: "{{ logstash_pipeline_dir }}/pipelines.yml"
+    group: "{{ logstash_group }}"
+    mode: u+rw,g+rw,o+r
+    owner: "{{ logstash_user }}"
+    src: 'pipelines.yml'
+
 - name: Restart Logstash
   systemd:
     name: logstash
