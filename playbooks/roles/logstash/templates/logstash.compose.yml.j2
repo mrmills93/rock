@@ -5,12 +5,11 @@ services:
     container_name: logstash
     restart: always
     volumes:
-    - "{{ logstash_pipeline_dir }}:/usr/share/logstash/pipeline"
+    - "{{ logstash_dir }}/pipelines.yml:/usr/share/logstash/config/pipelines.yml"
+    - "{{ logstash_dir }}/logstash.yml:/usr/share/logstash/config/logstash.yml"
+    - "{{ logstash_config_dir }}:/usr/share/logstash/pipeline"
     - "{{ logstash_data_dir }}:/usr/share/logstash/data/"
     - "{{ logstash_log_dir }}:{{ logstash_log_dir }}"
-    environment:
-    - xpack.monitoring.enabled="{{ xpack_license }}"
-    - xpack.management.enabled="{{ xpack_license }}"
 
 networks:
   default:

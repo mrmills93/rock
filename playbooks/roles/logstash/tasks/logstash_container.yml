@@ -25,12 +25,12 @@
     comment: "User for managing logstash related things"
     group: "{{ logstash_group }}"
 
-- name: "Create Logstash data directory"
+- name: "Create Logstash directory"
   file:
     group: "{{ logstash_group }}"
     mode: 0754
     owner: "{{ logstash_user }}"
-    path: "{{ logstash_data_dir }}"
+    path: "{{ logstash_dir }}"
     state: directory
 
 - name: "Create Logstash configuration directory"
@@ -38,7 +38,15 @@
     group: "{{ logstash_group }}"
     mode: 0754
     owner: "{{ logstash_user }}"
-    path: "{{ logstash_pipeline_dir }}"
+    path: "{{ logstash_config_dir }}"
+    state: directory
+
+- name: "Create Logstash data directory"
+  file:
+    group: "{{ logstash_group }}"
+    mode: 0754
+    owner: "{{ logstash_user }}"
+    path: "{{ logstash_data_dir }}"
     state: directory
 
 - name: "Create Logstash log directory"
@@ -72,6 +80,14 @@
     mode: 0755
     owner: "{{ logstash_user }}"
     src: templates/logstash.compose.yml.j2
+
+- name: "Copy logstash configuration file"
+  template:
+    dest: "{{ logstash_dir }}/logstash.yml"
+    group: "{{ logstash_group }}"
+    mode: 0755
+    owner: "{{ logstash_user }}"
+    src: templates/logstash.yml.j2
 
 - name: "Enable and start Logstash"
   systemd:
