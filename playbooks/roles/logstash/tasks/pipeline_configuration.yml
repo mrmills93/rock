@@ -6,7 +6,7 @@
   copy:
     dest: "{{ logstash_pipeline_dir }}/kafka-bro.conf"
     group: "{{ logstash_group }}"
-    mode: u+rw,g+rw,o+r
+    mode: 0754
     owner: "{{ logstash_user }}"
     src: 'kafka-bro.conf'
 
@@ -22,15 +22,15 @@
   copy:
     dest: "{{ logstash_pipeline_dir }}/kafka-fsf.conf"
     group: "{{ logstash_group }}"
-    mode: u+rw,g+rw,o+r
+    mode: 0754
     owner: "{{ logstash_user }}"
     src: 'kafka-fsf.conf'
 
 - name: "Copy pipelines.yml template"
-  template:
+  file:
     dest: "{{ logstash_pipeline_dir }}/pipelines.yml"
     group: "{{ logstash_group }}"
-    mode: u+rw,g+rw,o+r
+    mode: 0754
     owner: "{{ logstash_user }}"
     src: 'pipelines.yml'
 
