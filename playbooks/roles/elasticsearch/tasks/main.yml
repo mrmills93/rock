@@ -97,8 +97,10 @@
 - name: Install Signing Key for Curator
   command: rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch
 
-- name: Configure Repository
-  command: echo -e '[curator-5]\nname=CentOS/RHEL 7 repository for Elasticsearch Curator 5.x packages\nbaseurl=https://packages.elastic.co/curator/5/centos/7\ngpgcheck=1\ngpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch\nenabled=1' >> /etc/yum.repos.d/curator.repo
+- copy:
+    src: curator.repo
+    dest: /etc/yum.repos.d/curator.repo
+    mode: 0755
 
 - name: Install Elasticsearch Curator
   yum:
@@ -111,12 +113,12 @@
 - copy:
     src: curator.yml
     dest: ~/.curator/curator.yml
-    mode: 0644
+    mode: 0755
 
 - copy:
     src: curator-actions.yml
     dest: ~/.curator/curator-actions.yml
-    mode: 0644
+    mode: 0755
 
 - name: "Set Elasticsearch Curator cron job"
   cron:
