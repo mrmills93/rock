@@ -105,12 +105,12 @@
   command: mkdir ~/.curator
 
 - copy:
-    src: /opt/rock/playbooks/files/curator.yml
+    src: curator.yml
     dest: ~/.curator/curator.yml
     mode: 0644
 
 - copy:
-    src: /opt/rock/playbooks/roles/elasticsearch/files/curator-actions.yml
+    src: curator-actions.yml
     dest: ~/.curator/curator-actions.yml
     mode: 0644
 
