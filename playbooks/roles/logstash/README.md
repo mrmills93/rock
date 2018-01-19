@@ -118,6 +118,10 @@ Other Helpful Tips
 ------------------
 - Logstash will concatenate all configuration files together. In our case, logstash-kafka-bro.conf, logstash-kafka-fsf.conf, and logstash-kafka-suricata.conf will all be concatenated together in lexigraphical order into a single config file. See the -f command line option.
 
+Kafka Plugin
+------------
+
+
 Helpful Commands
 ----------------
 
