@@ -1,5 +1,5 @@
-# Please note that I have set the "disable_action" key to "true", meaning this action will not run. This is for testing purposes, but this must
-# be set to "false" for the actions to run.
+# Please note that I have included the "disable_action" key for testing purposes.
+# Setting this key to "true" will prevent that action from running.
 actions:
   1:
     action: delete_indices
@@ -7,7 +7,7 @@ actions:
       Delete all marvel indices older than one day.
     options:
       ignore_empty_list: True
-      disable_action: True
+      disable_action: False
     filters:
     - filtertype: pattern
       kind: prefix
@@ -26,7 +26,7 @@ actions:
       actionable list of indices (ignore_empty_list) and exit cleanly.
     options:
       ignore_empty_list: True
-      disable_action: True
+      disable_action: False
     filters:
     - filtertype: pattern
       kind: prefix
@@ -42,7 +42,7 @@ actions:
     description: >-
       Close indices older than 15 days (based on index name), for logstash- prefixed indices.
     options:
-      disable_action: True
+      disable_action: False
     filters:
     - filtertype: pattern
       kind: prefix
@@ -61,4 +61,4 @@ actions:
     options:
       count: 0
       wait_for_completion: True
-      disable_action: True
+      disable_action: False
