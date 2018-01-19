@@ -101,7 +101,9 @@
   command: echo -e '[curator-5]\nname=CentOS/RHEL 7 repository for Elasticsearch Curator 5.x packages\nbaseurl=https://packages.elastic.co/curator/5/centos/7\npgkey=https://packages.elastic.co/GPG-KEY-elasticsearch\nenabled=1' >> /etc/yum.repos.d/curator.repo
 
 - name: Install Elasticsearch Curator
-  command: yum install -y elasticsearch-curator
+  yum:
+    name: elasticsearch-curator
+    state: latest
 
 - name: Create Curator config directory
   file: path=~/.curator state=directory
