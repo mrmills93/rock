@@ -43,6 +43,6 @@
   service:
     name: 'kibana'
     enabled: yes
-    state: started
+    state: restarted
     daemon_reload: yes
 ...

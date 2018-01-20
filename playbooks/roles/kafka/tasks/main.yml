@@ -91,7 +91,7 @@
   systemd:
     name: 'kafka'
     enabled: yes
-    state: started
+    state: restarted
     daemon-reload: yes
 
 - name: 'Wait for Kafka service to start'

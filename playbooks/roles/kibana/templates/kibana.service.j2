@@ -1,9 +1,9 @@
 [Unit]
  Description = Kibana Container Service
- 
+
  Wants    = network.target
- Requires = docker.service
- 
+ Requires = docker.service zookeeper.service
+
  [Service]
  Type = simple
 

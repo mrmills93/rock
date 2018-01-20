@@ -34,7 +34,9 @@
     owner: "{{ logstash_user }}"
     src: 'pipelines.yml'
 
-- name: Restart Logstash
+- name: "Enable and start Logstash"
   systemd:
+    enabled: yes
     name: logstash
     state: restarted
+    daemon-reload: yes

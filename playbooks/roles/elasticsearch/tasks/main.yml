@@ -74,7 +74,7 @@
   systemd:
     enabled: yes
     name: elasticsearch
-    state: started
+    state: restarted
     daemon-reload: yes
 
 - name: Install Signing Key for Curator
