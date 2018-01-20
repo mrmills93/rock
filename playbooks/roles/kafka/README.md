@@ -75,6 +75,16 @@ Helpful Tutorials
 -----------------
 https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html
 
+Helpful Kafkacat Commands
+-------------------------
+
+List Topics
+kafkacat -b 127.0.0.1:9092 -L
+
+Debug Networking
+kafkacat -b 127.0.0.1:9092 -d all -L
+
+
 License
 -------
 
