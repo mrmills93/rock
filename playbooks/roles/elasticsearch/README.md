@@ -93,3 +93,7 @@ type
     A type used to represent the type of document, e.g. an email, a user, or a tweet. Types are deprecated and are in the process of being removed.
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/glossary.html#index
+
+Helpful Commands
+---------------
+curl -XGET 'localhost:9200/_cat/indices?v&pretty'
