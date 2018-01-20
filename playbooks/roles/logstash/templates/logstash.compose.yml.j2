@@ -2,7 +2,7 @@ version: "2"
 services:
   logstash:
     image: "docker.elastic.co/logstash/logstash:{{ elastic_ver }}"
-    container_name: rock-logstash
+    container_name: "{{ logstash_container_name }}"
     restart: always
     volumes:
     - "{{ logstash_dir }}/pipelines.yml:/usr/share/logstash/config/pipelines.yml"
