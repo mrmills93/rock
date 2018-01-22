@@ -1,14 +1,14 @@
 {
   "Threads": [
     {
-      "PacketsDirectory": "/data/stenographer/{{ item.1 }}/thread0/packets"
-    , "IndexDirectory": "/data/stenographer/{{ item.1 }}/thread0/index"
+      "PacketsDirectory": "/data/stenographer/{{ rock_monifs }}/thread0/packets"
+    , "IndexDirectory": "/data/stenographer/{{ rock_monifs }}/thread0/index"
     , "MaxDirectoryFiles": 30000
     , "DiskFreePercentage": 10
     }
   ]
   , "StenotypePath": "/usr/bin/stenotype"
-  , "Interface": "{{ item.1 }}"
+  , "Interface": "{{ rock_monifs }}"
   , "Port": {{ 1234 + item.0 }}
   , "Host": "127.0.0.1"
   , "Flags": ["-v"]
