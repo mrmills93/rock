@@ -64,6 +64,10 @@ all:
       children:
         master-servers:
 
+    stenographer:
+      children:
+        sensors:
+
     # Broad categories for convienience
     sensors:
 
